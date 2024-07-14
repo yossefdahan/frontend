@@ -77,13 +77,13 @@ export function ChatApp() {
         setUsers(users);
     }
 
-    function handleLearnMessage(ev) {
+    async function handleLearnMessage(ev) {
         ev.preventDefault();
         const userMessage = msg.txt.toLowerCase();
         if (userMessage.startsWith('learn:')) {
             const [key, value] = userMessage.substring(6).split('::');
             if (key && value) {
-                dispatch(learnResponse(key.trim(), value.trim()));
+                await dispatch(learnResponse(key.trim(), value.trim(), room));
                 addMsg({ from: 'Bot', txt: `Learned new response for "${key.trim()}"` });
             } else {
                 addMsg({ from: 'Bot', txt: 'Invalid learning format. Use learn:<question>::<response>' });

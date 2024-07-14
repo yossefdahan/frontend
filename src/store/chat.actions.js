@@ -18,13 +18,18 @@ export function sendMessage(message, room) {
     }
 }
 
-export async function learnResponse(question, answer) {
+export function learnResponse(question, answer, room) {
     return async function (dispatch) {
         try {
             const responseMessage = await chatService.learnResponse(question, answer);
             dispatch({
                 type: LEARN_RESPONSE,
                 message: responseMessage,
+            });
+            // Send a message to the room that a new response has been learned
+            dispatch({
+                type: ADD_MESSAGE,
+                message: { from: 'Bot', txt: `Learned new response for "${question}"`, room }
             });
         } catch (err) {
             console.error('Failed to learn response', err);

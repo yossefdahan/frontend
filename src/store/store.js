@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { thunk } from 'redux-thunk';
+import thunk from 'redux-thunk'; // וודא שהייבוא הוא נכון
 
 import { userReducer } from './user.reducer.js';
 import { systemReducer } from './system.reducer';
@@ -20,4 +20,4 @@ store.subscribe(() => {
     console.log('*******************************');
 });
 
-export { store }
+export { store };
