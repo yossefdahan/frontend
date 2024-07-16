@@ -36,7 +36,7 @@ export function RootCmp() {
     return (
         <div className='main-container'>
             <AppHeader />
-            <main>
+            <main className='main-content'>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/chat/:room" element={<ChatApp />} />
