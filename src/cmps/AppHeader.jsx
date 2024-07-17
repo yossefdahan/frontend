@@ -36,7 +36,7 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header">
+        <header className="app-header full">
             <h1 className='logo'>Messenger</h1>
 
 

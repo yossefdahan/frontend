@@ -25,17 +25,18 @@ export function HomePage() {
     }
 
     return (
-        <section>
-            <h2 style={{ textAlign: 'center' }}>Choose a Room to Chat</h2>
-            <ul style={{ display: 'flex', justifyContent: 'center', gap: '10px', listStyleType: 'none', flexWrap: 'wrap', padding: 0 }}>                {rooms.map((room, idx) => (
-                <li key={idx}>
-                    <ImageButton
-                        src={room.img}
-                        alt={room.name}
-                        onClick={() => joinRoom(room)}
-                    />
-                </li>
-            ))}
+        <section className='home-container'>
+            <h2>Choose a Room to Chat</h2>
+            <ul>
+                {rooms.map((room, idx) => (
+                    <li key={idx}>
+                        <ImageButton
+                            src={room.img}
+                            alt={room.name}
+                            onClick={() => joinRoom(room)}
+                        />
+                    </li>
+                ))}
             </ul>
         </section>
     );

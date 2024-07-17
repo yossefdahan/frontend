@@ -98,12 +98,16 @@ export function ChatApp() {
         <section className="chat">
             <h2>Let's Chat about {room}</h2>
             <button onClick={() => navigate('/')}>Home Page</button>
-            <label>
-                <input type="checkbox" name="isBotMode" checked={isBotMode}
-                    onChange={({ target }) => setIsBotMode(target.checked)} />
-                Bot Mode
-            </label>
-            <p>Total Users: {users.length}</p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span className="status-text">{isBotMode ? 'Bot Active' : 'Bot Inactive'}</span>
+                <div className="pill-switch">
+                    <input type="checkbox" id="bot-toggle" name="isBotMode" checked={isBotMode} onChange={({ target }) => setIsBotMode(target.checked)} />
+                    <label className="pill-label" htmlFor="bot-toggle">
+                        <span className="pill-indicator"></span>
+                    </label>
+                </div>
+            </div>
+            <p>Total Users in Room: {users.length}</p>
             <div className="room-chat">
                 <div className="chat-container">
                     <ul>
