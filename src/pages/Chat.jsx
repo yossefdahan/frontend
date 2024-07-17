@@ -36,17 +36,14 @@ export function ChatApp() {
     }, [msgs]);
 
     function addMsg(newMsg) {
-        console.log('New message added:', newMsg);
         setMsgs(prevMsgs => [...prevMsgs, newMsg]);
     }
 
     async function sendBotResponse(userMsg) {
         botTimeoutRef.current && clearTimeout(botTimeoutRef.current);
         botTimeoutRef.current = setTimeout(async () => {
-            console.log('sendBotResponse called with userMsg:', userMsg);
             try {
                 const botResponse = await dispatch(sendMessage(userMsg.txt, userMsg.room));
-                console.log('Bot response received:', botResponse);
             } catch (error) {
                 console.error('Failed to get bot response:', error);
             }
@@ -57,7 +54,6 @@ export function ChatApp() {
         ev.preventDefault();
         const from = loggedInUser?.fullname || 'Guest';
         const newMsg = { from, txt: msg.txt, room };
-        console.log('Sending message:', newMsg);
         socketService.emit(SOCKET_EMIT_SEND_MSG, newMsg);
         addMsg(newMsg);
         if (isBotMode) sendBotResponse(newMsg);

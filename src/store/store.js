@@ -14,10 +14,10 @@ const rootReducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
-store.subscribe(() => {
-    console.log('**** Store state changed: ****');
-    console.log('storeState:\n', store.getState());
-    console.log('*******************************');
-});
+// store.subscribe(() => {
+//     console.log('**** Store state changed: ****');
+//     console.log('storeState:\n', store.getState());
+//     console.log('*******************************');
+// });
 
 export { store };
