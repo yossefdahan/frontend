@@ -1,32 +1,25 @@
-import { useState, useEffect } from 'react'
-import { userService } from '../services/user.service'
-import { ImgUploader } from './ImgUploader'
-import { LoginForm } from './LoginForm'
-import { login, signup } from '../store/user.actions'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { useState } from 'react';
+import { login, signup } from '../store/user.actions';
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
+import { LoginForm } from './LoginForm';
 
 export function LoginSignup({ onClose }) {
-    const [isSignup, setIsSignUp] = useState(false)
+    const [isSignup, setIsSignup] = useState(false);
 
     function onLogin(credentials) {
-        isSignup ? _signup(credentials) : _login(credentials)
+        isSignup ? _signup(credentials) : _login(credentials);
     }
 
     function _login(credentials) {
         login(credentials)
-            .then(() => { showSuccessMsg('Logged in successfully') })
-            .catch((err) => { showErrorMsg('Oops try again') })
+            .then(() => { showSuccessMsg('Logged in successfully'); onClose(); })
+            .catch((err) => { showErrorMsg('Oops try again'); });
     }
 
     function _signup(credentials) {
         signup(credentials)
-            .then(() => { showSuccessMsg('Signed in successfully') })
-            .catch((err) => { showErrorMsg('Oops try again') })
-    }
-
-
-    function onUploaded(imgUrl) {
-        setCredentials({ ...credentials, imgUrl })
+            .then(() => { showSuccessMsg('Signed in successfully'); onClose(); })
+            .catch((err) => { showErrorMsg('Oops try again'); });
     }
 
     return (
@@ -35,23 +28,18 @@ export function LoginSignup({ onClose }) {
                 <LoginForm
                     onLogin={onLogin}
                     isSignup={isSignup}
-                    onClose={onClose}
-                    onUploaded={onUploaded}
                 />
-
                 <div className="toggle-btns">
                     <div className="btns">
-                        <a href="#" onClick={() => setIsSignUp(!isSignup)}>
+                        <a href="#" onClick={() => setIsSignup(!isSignup)}>
                             {isSignup ?
                                 'Already a member? Login' :
                                 'New user? Signup here'
                             }
-                        </a >
+                        </a>
                     </div>
                 </div>
-
             </div>
         </div>
-
-    )
+    );
 }

@@ -1,25 +1,23 @@
-import { useState } from "react"
-import { userService } from "../services/user.service.js"
-import { ImgUploader } from "./ImgUploader.jsx"
+import { useState } from "react";
+import { userService } from "../services/user.service.js";
+import { ImgUploader } from "./ImgUploader.jsx";
 
-
-export function LoginForm({ onLogin, isSignup, onClose, onUploaded }) {
-
-    const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
+export function LoginForm({ onLogin, isSignup, onClose }) {
+    const [credentials, setCredentials] = useState(userService.getEmptyCredentials());
 
     function handleChange({ target }) {
-        const { name: field, value } = target
-        setCredentials(prevCreds => ({ ...prevCreds, [field]: value }))
+        const { name: field, value } = target;
+        setCredentials(prevCreds => ({ ...prevCreds, [field]: value }));
     }
 
     function handleSubmit(ev) {
-        ev.preventDefault()
-        onLogin(credentials)
-        onClose()
+        ev.preventDefault();
+        onLogin(credentials);
+        onClose();
     }
 
     function onUploaded(imgUrl) {
-        setCredentials({ ...credentials, imgUrl })
+        setCredentials({ ...credentials, imgUrl });
     }
 
     return (
@@ -53,6 +51,5 @@ export function LoginForm({ onLogin, isSignup, onClose, onUploaded }) {
             {isSignup && <ImgUploader onUploaded={onUploaded} />}
             <button>{isSignup ? 'Signup' : 'Login'}</button>
         </form>
-
-    )
+    );
 }

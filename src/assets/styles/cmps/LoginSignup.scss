@@ -1,33 +1,62 @@
+// styles.scss
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.login-signup-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px grey;
+    z-index: 1001;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
 .login-page,
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-width: em(300px);
+    max-width: 300px;
     margin: auto;
     padding: 1rem;
 }
 
-.login-form input,
-.login-form button {
-    padding: 0.5rem;
-    border-radius: 8px;
-    border: 1px solid gray;
-    font-size: 1rem;
-}
+.login-form {
 
-.login-form button {
-    background-color: navy;
-    color: white;
-    cursor: pointer;
+    input,
+    button {
+        padding: 0.5rem;
+        border-radius: 8px;
+        border: 1px solid gray;
+        font-size: 1rem;
+    }
 
-    &:hover {
-        scale: 1.05;
+    button {
+        background-color: navy;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+            scale: 1.05;
+        }
     }
 }
 
 .btns {
-    & a {
+    a {
         color: gray;
         cursor: pointer;
         text-decoration: underline;
@@ -44,7 +73,7 @@
     justify-content: center;
     align-items: center;
 
-    & .imgUpload-btn {
+    .imgUpload-btn {
         cursor: pointer;
         margin-bottom: 10px;
         padding: 10px;
@@ -58,28 +87,4 @@
             transform: scale(1.02);
         }
     }
-}
-
-.modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.login-signup-modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px grey;
-    z-index: 1001;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
 }

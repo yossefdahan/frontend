@@ -1,41 +1,5 @@
-$primary-color: #eeeeee;
-$secondary-color: #2575fc;
-$clr4: #ffffff; // Example color, adjust as needed
-
-/* Mixin for gradient background */
-@mixin gradient-bg($color1, $color2) {
-    background: linear-gradient(135deg, $color1 0%, $color2 100%);
-}
-
-/* Mixin for gradient text */
-@mixin gradient-text($color1, $color2) {
-    background: linear-gradient(135deg, $color1, $color2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Mixin for text shadow */
-@mixin text-shadow($h-shadow, $v-shadow, $blur, $color) {
-    text-shadow: $h-shadow $v-shadow $blur $color;
-}
-
-/* Mixin for decorative elements */
-@mixin decorative-elements($size, $color) {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20%;
-    width: $size;
-    height: $size;
-    background: $color;
-    opacity: 0.1;
-    border-radius: 50%;
-    z-index: 1;
-}
-
 .app-footer {
-    @include gradient-bg(#111, #444); // Add gradient background for footer
-    color: $clr4;
+    background: linear-gradient(135deg, #2bb480 0%, #167ca5 100%);
     padding: 10px;
     margin: 0px;
     text-align: center;
@@ -43,35 +7,27 @@ $clr4: #ffffff; // Example color, adjust as needed
     bottom: 0;
     left: 0;
     right: 0;
-    overflow: hidden; // Ensure decorative elements are contained
-
-    &::before {
-        @include decorative-elements(200px, white);
-        top: 20%;
-        left: 15%;
-    }
-
-    &::after {
-        @include decorative-elements(300px, white);
-        bottom: 20%;
-        right: 10%;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        @include gradient-text($primary-color, $secondary-color);
-        @include text-shadow(1px, 1px, 5px, rgba(0, 0, 0, 0.5));
-        transition: transform 0.3s;
-
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
+    font-family: "Open Sans", sans-serif;
 
     p {
-        font-size: 1rem;
-        @include text-shadow(1px, 1px, 3px, rgba(0, 0, 0, 0.3));
+        font-size: 1.1rem;
+        text-shadow: (1px, 1px, 3px, rgba(0, 0, 0, 0.3));
+        color: whitesmoke;
+        margin: 0;
+    }
+
+
+
+    .links-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            margin: 5px 0;
+        }
     }
 }

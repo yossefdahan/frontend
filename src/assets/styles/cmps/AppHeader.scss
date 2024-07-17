@@ -1,39 +1,5 @@
-$primary-color: #6b80c4;
-$secondary-color: #2575fc;
-
-/* Mixin for gradient background */
-@mixin gradient-bg($color1, $color2) {
-    background: linear-gradient(135deg, $color1 0%, $color2 100%);
-}
-
-/* Mixin for gradient text */
-@mixin gradient-text($color1, $color2) {
-    background: linear-gradient(135deg, $color1, $color2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Mixin for text shadow */
-@mixin text-shadow($h-shadow, $v-shadow, $blur, $color) {
-    text-shadow: $h-shadow $v-shadow $blur $color;
-}
-
-/* Mixin for decorative elements */
-@mixin decorative-elements($size, $color) {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: $size;
-    height: $size;
-    background: $color;
-    opacity: 0.1;
-    border-radius: 50%;
-    z-index: 1;
-}
-
 .app-header {
-    @include gradient-bg(#111, #444); // Add gradient background
+    background: linear-gradient(135deg, #167ca5 0%, #2bb480 100%);
     position: relative;
 
     padding: 10px;
@@ -42,52 +8,39 @@ $secondary-color: #2575fc;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden; // Ensure decorative elements are contained
-
-    &::before {
-        @include decorative-elements(200px, white);
-        top: 10%;
-        left: 10%;
-    }
-
-    &::after {
-        @include decorative-elements(300px, white);
-        bottom: 10%;
-        right: 10%;
-    }
 
     .logo {
-        padding: 0;
+        width: 100px;
+        height: 100px;
         margin: 0 0 0 10px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        @include gradient-text($primary-color, $secondary-color);
-        @include text-shadow(2px, 2px, 10px, rgba(0, 0, 0, 0.3));
-        transition: transform 0.3s;
+        border-radius: 30%;
 
         &:hover {
-            transform: scale(1.1);
+            scale: 1.1;
         }
+    }
 
-        @media (max-width: 600px) {
-            font-size: 1.9rem;
-        }
+    & .about-btn {
+        font-family: "Lato", sans-serif;
+        background-color: initial;
+        font-size: 22px;
+        font-family: "Lato", sans-serif;
+        padding: 0;
+        margin: 0;
     }
 
     .user-info {
-
         display: flex;
         align-items: center;
+        flex-direction: column;
+        font-family: "Lato", sans-serif;
 
         div {
-
             display: flex;
-            flex-direction: column;
             align-items: center;
         }
 
         img {
-
             border-radius: 50%;
             object-fit: cover;
             width: 40px;
@@ -96,19 +49,21 @@ $secondary-color: #2575fc;
 
         .logout-btn,
         .login-ham-btn {
-            background-color: navy;
+            font-family: "Lato", sans-serif;
+            background: linear-gradient(135deg, #a5168d 0%, #b45d2b 100%);
             border: none;
             border-radius: 8%;
             width: fit-content;
             font-size: 1em;
-            font-weight: 500;
-            transition: all 0.3s;
+            font-weight: 600;
             align-self: end;
+            color: rgb(255, 255, 255);
+            transition: all 0.3s;
 
             &:hover {
-                background-color: rgb(114, 247, 132);
-                color: black;
-                transform: scale(1.05);
+                // background: linear-gradient(135deg, #b4a62b 0%, #a5161d 100%);
+                color: rgb(255, 255, 255);
+                transform: scale(1.1);
             }
         }
     }

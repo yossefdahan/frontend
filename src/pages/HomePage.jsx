@@ -38,6 +38,7 @@ export function HomePage() {
                     </li>
                 ))}
             </ul>
+
         </section>
     );
 }
