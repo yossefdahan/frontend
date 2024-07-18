@@ -16,7 +16,7 @@ export function LoginSignup({ onClose }) {
                 showSuccessMsg('Logged in successfully')
                 onClose()
             })
-            .catch((err) => { showErrorMsg('Oops try again') })
+            .catch((err) => { showErrorMsg('Invalid username or password') })
     }
 
     function _signup(credentials) {
@@ -25,7 +25,7 @@ export function LoginSignup({ onClose }) {
                 showSuccessMsg('Signed in successfully')
                 onClose()
             })
-            .catch((err) => { showErrorMsg('Oops try again') })
+            .catch((err) => { showErrorMsg('Username already taken') })
     }
 
     return (
