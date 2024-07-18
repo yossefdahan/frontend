@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 
 export function About() {
+    const navigate = useNavigate()
     return (
         <div className="about-page">
             <header className="about-header">
-                <img className="logo" src="/public/img/logo.png" alt="ChatApp Logo" />
+                <img className="logo" src="/img/logo.PNG" alt="ChatApp Logo" style={{ cursor: 'pointer' }} onClick={() => navigate("/")} />
                 <h1>About ChatApp</h1>
             </header>
             <section className="about-content">
@@ -20,10 +22,8 @@ export function About() {
                 <p>
                     ChatApp was created by Yossef Dahan, a passionate developer dedicated to building communities and fostering communication. For more information or to get in touch, please visit our <a href="https://github.com/yossefdahan" target="_blank" rel="noopener noreferrer">GitHub</a> or <a href="https://www.linkedin.com/in/yossef-dahan-fs18/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
                 </p>
+                <note>to go back home, click on the logo</note>
             </section>
-            <footer className="about-footer">
-                <p>&copy; 2024 ChatApp. All rights reserved Yossef Dahan</p>
-            </footer>
         </div >
     );
 }

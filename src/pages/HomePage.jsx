@@ -13,7 +13,10 @@ export function HomePage() {
         { name: 'Politics', img: '/img/politics.jpeg' },
         { name: 'developers', img: '/img/developers.jpeg' },
         { name: 'Sports', img: '/img/sports.jpeg' },
-        { name: 'Music', img: '/img/music.jpeg' }
+        { name: 'Music', img: '/img/music.jpeg' },
+        { name: 'cooking', img: '/img/cooking.jpeg' },
+        { name: 'fitness', img: '/img/fitness.jpeg' },
+        { name: 'travel', img: '/img/travel.jpeg' },
     ];
 
     function joinRoom(room) {
