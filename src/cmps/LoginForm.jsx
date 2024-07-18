@@ -48,7 +48,7 @@ export function LoginForm({ onLogin, isSignup, onClose }) {
                 onChange={handleChange}
                 required
             />}
-            {isSignup && <ImgUploader onUploaded={onUploaded} />}
+            {/* {isSignup && <ImgUploader onUploaded={onUploaded} />} */}
             <button>{isSignup ? 'Signup' : 'Login'}</button>
         </form>
     );

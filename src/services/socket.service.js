@@ -1,66 +1,57 @@
-import io from 'socket.io-client'
-import { userService } from './user.service'
+import io from 'socket.io-client';
+import { userService } from './user.service';
 
 // Chat
-export const SOCKET_EVENT_ADD_MSG = 'chat-add-msg'
-export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg'
-export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic'
-
-// User detail
-export const SOCKET_EMIT_USER_WATCH = 'user-watch'
-export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
-
-// Reviews
-export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
-export const SOCKET_EVENT_REVIEW_REMOVED = 'review-removed'
-export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'
-
-// Bot response
-export const SOCKET_EMIT_BOT_RESPONSE = 'bot-response'
-
-const SOCKET_EMIT_LOGIN = 'set-user-socket'
-const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
+export const SOCKET_EVENT_ADD_MSG = 'chat-add-msg';
+export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg';
+export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic';
 
 // User list
-export const SOCKET_EMIT_GET_USERS_IN_ROOM = 'get-users-in-room'
-export const SOCKET_EVENT_USERS_IN_ROOM = 'users-in-room'
+export const SOCKET_EVENT_USERS_IN_ROOM = 'users-in-room';
 
-const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-export const socketService = createSocketService()
+export const SOCKET_EMIT_LOGIN = 'set-user-socket';
+export const SOCKET_EMIT_LOGOUT = 'unset-user-socket';
+
+const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030';
+
+let socket = null;
+
+export const socketService = {
+    setup() {
+        if (!socket) {
+            socket = io(baseUrl);
+        }
+    },
+    connect(user) {
+        if (!socket) this.setup();
+        socket.emit(SOCKET_EMIT_LOGIN, user);
+    },
+    disconnect() {
+        if (socket) socket.emit(SOCKET_EMIT_LOGOUT);
+    },
+    on(eventName, cb) {
+        if (!socket) this.setup();
+        socket.on(eventName, cb);
+    },
+    off(eventName, cb = null) {
+        if (!socket) return;
+        if (!cb) socket.removeAllListeners(eventName);
+        else socket.off(eventName, cb);
+    },
+    emit(eventName, data) {
+        if (!socket) throw new Error('Socket not initialized');
+        socket.emit(eventName, data);
+    },
+    login(user) {
+        this.connect(user);
+    },
+    logout() {
+        this.disconnect();
+    },
+    terminate() {
+        socket = null;
+    },
+};
 
 // for debugging from console
-window.socketService = socketService
-
-socketService.setup()
-
-function createSocketService() {
-    var socket = null;
-    const socketService = {
-        setup() {
-            socket = io(baseUrl)
-            const user = userService.getLoggedinUser()
-            if (user) this.login(user._id)
-        },
-        on(eventName, cb) {
-            socket.on(eventName, cb)
-        },
-        off(eventName, cb = null) {
-            if (!socket) return;
-            if (!cb) socket.removeAllListeners(eventName)
-            else socket.off(eventName, cb)
-        },
-        emit(eventName, data) {
-            socket.emit(eventName, data)
-        },
-        login(userId) {
-            socket.emit(SOCKET_EMIT_LOGIN, userId)
-        },
-        logout() {
-            socket.emit(SOCKET_EMIT_LOGOUT)
-        },
-        terminate() {
-            socket = null
-        },
-    }
-    return socketService
-}
+window.socketService = socketService;
