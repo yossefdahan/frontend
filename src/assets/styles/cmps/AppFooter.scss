@@ -1,22 +1,20 @@
 .app-footer {
-    background: linear-gradient(135deg, #2bb480 0%, #167ca5 100%);
-    padding: 10px;
-    margin: 0px;
+    background: $gradient-secondary;
+    padding: $padding-small;
+    margin: 0;
     text-align: center;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: $primary-font;
 
     p {
-        font-size: 1.1rem;
+        font-size: $font-size-footer;
         text-shadow: (1px, 1px, 3px, rgba(0, 0, 0, 0.3));
         color: whitesmoke;
         margin: 0;
     }
-
-
 
     .links-container {
         display: flex;

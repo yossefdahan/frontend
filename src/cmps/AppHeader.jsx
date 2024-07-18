@@ -4,39 +4,39 @@ import { login, logout, signup } from '../store/user.actions.js';
 import { LoginSignup } from './LoginSignup.jsx';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { NavLink } from 'react-router-dom';
+
 
 export function AppHeader() {
-    const user = useSelector(storeState => storeState.userModule.user);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const toggleModal = () => setIsModalOpen(!isModalOpen);
-    const navigate = useNavigate();
+    const user = useSelector(storeState => storeState.userModule.user)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const toggleModal = () => setIsModalOpen(!isModalOpen)
+    const navigate = useNavigate()
     async function onLogin(credentials) {
         try {
-            const user = await login(credentials);
-            showSuccessMsg(`Welcome: ${user.fullname}`);
+            const user = await login(credentials)
+            showSuccessMsg(`Welcome: ${user.fullname}`)
         } catch (err) {
-            showErrorMsg('Cannot login');
+            showErrorMsg('Cannot login')
         }
     }
 
     async function onSignup(credentials) {
         try {
-            const user = await signup(credentials);
-            showSuccessMsg(`Welcome new user: ${user.fullname}`);
+            const user = await signup(credentials)
+            showSuccessMsg(`Welcome new user: ${user.fullname}`)
         } catch (err) {
-            showErrorMsg('Cannot signup');
+            showErrorMsg('Cannot signup')
         }
     }
 
     async function onLogout() {
         try {
-            await logout();
-            showSuccessMsg(`Bye now`);
-            navigate('/');
+            await logout()
+            showSuccessMsg(`Bye now`)
+            navigate('/')
 
         } catch (err) {
-            showErrorMsg('Cannot logout');
+            showErrorMsg('Cannot logout')
         }
     }
 
@@ -62,5 +62,5 @@ export function AppHeader() {
             }
             {isModalOpen && <LoginSignup onClose={toggleModal} onLogin={onLogin} onSignup={onSignup} />}
         </header>
-    );
+    )
 }

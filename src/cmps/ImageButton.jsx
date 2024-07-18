@@ -6,5 +6,5 @@ export function ImageButton({ src, alt, onClick }) {
         <button className='image-btn' onClick={onClick}>
             <img src={src} alt={alt} />
         </button>
-    );
+    )
 }

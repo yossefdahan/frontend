@@ -1,12 +1,85 @@
-// Colors
-$clr1: #ce2e6c;
-$clr2: #4f3a65;
-$clr3: #574f7d;
-$clr4: #95adbe;
-$clr5: #dff0ea;
-$clr6: #fff;
-$clr7: #222;
+// Color Variables
+$primary-color: #167ca5;
+$secondary-color: #2bb480;
+$tertiary-color: #128ba0;
+$quaternary-color: #49b13b;
+$quinary-color: #01fc55;
+$senary-color: #04702d;
+$septenary-color: #2b5876;
+$octonary-color: #4e4376;
+$nonary-color: #ffd700;
+$denary-color: #ff8c00;
+$light-gray-color: lightgray;
+$medium-gray-color: gray;
+$dark-gray-color: #333;
+$background-gray: #f4f4f4;
+$border-gray: #ccc;
+$accent-color: #bd2828;
+$accent-color-checked: #47b927;
+$btn-bg-color: navy;
+$img-upload-hover-color: red;
+$user-msg-bg: #e3e3e3;
+$bot-msg-bg: #d1e7dd;
+$btn-gradient-start: #a5168d;
+$btn-gradient-end: #b45d2b;
 
+// Font Variables
+$primary-font: "Open Sans", sans-serif;
+$secondary-font: "Lato", sans-serif;
+
+// Dimension Variables
+$padding-small: 10px;
+$padding-medium: 20px;
+$padding-large: 30px;
+$gap-small: 10px;
+$border-radius-small: 8px;
+$border-radius-medium: 10px;
+$border-radius-large: 20px;
+$border-radius-circle: 50%;
+$input-height: 30px;
+$input-width: 60px;
+$input-padding: 10px;
+$max-width-chat-container: 600px;
+$max-height-chat-container: 400px;
+$min-height-chat-container: 350px;
+$img-size: 200px;
+$logo-width: 100px;
+$logo-height: 100px;
+$about-logo-width: 150px;
+$font-size-large: 2.5rem;
+$font-size-medium: 1.2rem;
+$font-size-small: 1rem;
+$font-size-xsmall: 14px;
+$font-size-xxsmall: 13px;
+$font-size-footer: 1.1rem;
+$line-height: 1.8;
+
+// Shadow Variables
+$box-shadow-small: 0 4px 6px grey;
+$box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+$box-shadow-large: 0 10px 20px rgba(0, 0, 0, 0.3);
+$box-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+$box-shadow-light: 0px 8px 16px 2px lightgray;
+
+// Animation Variables
+$spin-animation-duration: 3s;
+$spin-animation-timing: linear;
+$spin-animation-iteration: infinite;
+$transform-scale-hover: scale(1.1);
+$transform-scale-active: scale(0.95);
+$transform-scale-focus: scale(1.05);
+$transform-scale-hover-footer: scale(1.1);
+
+// Gradient Variables
+$gradient-primary: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+$gradient-secondary: linear-gradient(135deg, $quaternary-color 0%, $tertiary-color 100%);
+$gradient-accent: linear-gradient(135deg, $btn-gradient-start 0%, $btn-gradient-end 100%);
+$gradient-chat-btn: linear-gradient(135deg, $quinary-color 10%, $senary-color 100%);
+$gradient-about: linear-gradient(135deg, $septenary-color, $octonary-color);
+
+// Z-index Variables
+$z-index-modal-backdrop: 1000;
+$z-index-modal: 1001;
 
 // Breakpoints
 $mobile-breakpoint: 460px;

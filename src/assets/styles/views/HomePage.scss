@@ -3,20 +3,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // height: 100vh;
-    // width: 100vw;
-
-
 
     h2 {
         text-align: center;
-        font-family: "Open Sans", sans-serif;
+        font-family: $primary-font;
     }
 
     ul {
         display: flex;
         justify-content: center;
-        gap: 10px;
+        gap: $gap-small;
         list-style-type: none;
         padding: 0;
         flex-wrap: wrap;
@@ -26,12 +22,12 @@
         border: none;
         background: none;
         cursor: pointer;
-        border-radius: 25%;
+        border-radius: $border-radius-circle;
 
         img {
-            width: 200px;
-            height: 200px;
-            border-radius: 25%;
+            width: $img-size;
+            height: $img-size;
+            border-radius: $border-radius-circle;
         }
     }
 }

@@ -1,48 +1,48 @@
 .about-page {
-    font-family: 'Lato', sans-serif;
-    background: linear-gradient(135deg, #2b5876, #4e4376);
+    font-family: $secondary-font;
+    background: $gradient-about;
     color: #ffffff;
-    padding: 20px;
+    padding: $padding-medium;
     margin: 40px auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: $border-radius-large;
+    box-shadow: $box-shadow-large;
     max-width: 800px;
     text-align: center;
 
     .about-header {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: $padding-medium;
 
         .logo {
-            width: 150px;
+            width: $about-logo-width;
             height: auto;
-            margin-bottom: 20px;
-            animation: spin 3s linear infinite;
+            margin-bottom: $padding-medium;
+            animation: spin $spin-animation-duration $spin-animation-timing $spin-animation-iteration;
             border-radius: 24%;
         }
 
         h1 {
-            font-size: 2.5rem;
-            color: #ffd700;
+            font-size: $font-size-large;
+            color: $nonary-color;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
         }
     }
 
     .about-content {
         p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: $font-size-medium;
+            line-height: $line-height;
+            margin-bottom: $padding-medium;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 
             a {
-                color: #ffd700;
+                color: $nonary-color;
                 text-decoration: none;
                 font-weight: bold;
                 transition: color 0.3s;
 
                 &:hover {
-                    color: #ff8c00;
+                    color: $denary-color;
                 }
             }
 
@@ -51,40 +51,36 @@
                 border-radius: 5px;
                 padding: 2px 5px;
             }
-
         }
 
         & note {
-            font-size: 14px;
+            font-size: $font-size-xsmall;
         }
     }
 
-
-
-
     .about-footer {
         text-align: center;
-        margin-top: 20px;
-        font-size: 1rem;
+        margin-top: $padding-medium;
+        font-size: $font-size-small;
         position: relative;
 
         p {
             margin: 0;
-            padding: 10px;
+            padding: $padding-small;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             display: inline-block;
             transition: transform 0.3s;
 
             &:hover {
-                transform: scale(1.1);
+                transform: $transform-scale-hover-footer;
                 cursor: pointer;
 
                 &::after {
                     content: "Yossef Dahan | GitHub | LinkedIn";
                     display: block;
-                    color: #ffd700;
-                    margin-top: 10px;
+                    color: $nonary-color;
+                    margin-top: $padding-small;
                 }
             }
         }

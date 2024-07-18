@@ -1,5 +1,4 @@
-// styles.scss
-
+// MODAL.scss
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -10,15 +9,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: $z-index-modal-backdrop;
 }
 
 .login-signup-modal {
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px grey;
-    z-index: 1001;
+    padding: $padding-medium;
+    border-radius: $border-radius-small;
+    box-shadow: $box-shadow-small;
+    z-index: $z-index-modal;
     width: 90%;
     max-width: 400px;
     text-align: center;
@@ -39,13 +38,13 @@
     input,
     button {
         padding: 0.5rem;
-        border-radius: 8px;
-        border: 1px solid gray;
+        border-radius: $border-radius-small;
+        border: 1px solid $medium-gray-color;
         font-size: 1rem;
     }
 
     button {
-        background-color: navy;
+        background-color: $btn-bg-color;
         color: white;
         cursor: pointer;
 
@@ -57,7 +56,7 @@
 
 .btns {
     a {
-        color: gray;
+        color: $medium-gray-color;
         cursor: pointer;
         text-decoration: underline;
     }
@@ -75,14 +74,14 @@
 
     .imgUpload-btn {
         cursor: pointer;
-        margin-bottom: 10px;
-        padding: 10px;
-        background-color: lightgray;
-        border-radius: 8px;
+        margin-bottom: $padding-small;
+        padding: $padding-small;
+        background-color: $light-gray-color;
+        border-radius: $border-radius-small;
         width: fit-content;
 
         &:hover {
-            background-color: red;
+            background-color: $img-upload-hover-color;
             color: white;
             transform: scale(1.02);
         }

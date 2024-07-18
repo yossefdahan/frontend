@@ -12,10 +12,9 @@ export function AppFooter() {
                     <a href="https://github.com/yossefdahan" target="_blank" rel="noopener noreferrer" style={{ margin: "0", paddingTop: "5px" }}><img src="/img/github.svg" alt="" style={{ width: "25px" }} /></a>
                     <a href="https://www.linkedin.com/in/yossef-dahan-fs18/" target="_blank" rel="noopener noreferrer" style={{ margin: "0", paddingTop: "5px" }}><img src="/img/linkdin.svg" alt="" style={{ width: "25px" }} /></a>
                 </div>
-                {/* <p style={{ fontSize: "1rem" }}>&copy; 2024 ChatApp</p> */}
             </div>
 
             <UserMsg />
         </footer>
-    );
+    )
 }

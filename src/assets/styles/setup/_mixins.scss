@@ -1,5 +1,4 @@
 /* Breakpoint mixins */
-
 @mixin for-mobile-layout {
     @media (max-width: calc($mobile-breakpoint + 40px)) {
         @content;
@@ -24,7 +23,7 @@
     }
 }
 
-/* Media  Mixins */
+/* Media Mixins */
 @mixin aspect-ratio($width, $height) {
     position: relative;
     overflow: hidden;
@@ -50,7 +49,7 @@
     }
 }
 
-// Mixin for removing hover efects on iphone screen
+// Mixin for removing hover effects on iPhone screen
 @mixin hover-supported {
     @media not all and (pointer: coarse) {
         &:hover {

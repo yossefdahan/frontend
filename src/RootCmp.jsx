@@ -1,11 +1,11 @@
-
 import { Routes, Route } from 'react-router';
+
 import { AppHeader } from './cmps/AppHeader';
+import { HomePage } from './pages/HomePage';
+import { About } from './pages/About';
 import { ChatApp } from './pages/Chat';
 import { AppFooter } from './cmps/AppFooter';
 
-import { HomePage } from './pages/HomePage';
-import { About } from './pages/About';
 
 export function RootCmp() {
 

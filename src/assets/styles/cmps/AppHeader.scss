@@ -1,20 +1,18 @@
 .app-header {
-    background: linear-gradient(135deg, #167ca5 0%, #2bb480 100%);
+    background: $gradient-secondary;
     position: relative;
-
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0px 8px 16px 2px lightgray;
+    padding: $padding-small;
+    margin-bottom: $padding-small;
+    box-shadow: $box-shadow-light;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .logo {
-        width: 100px;
-        height: 100px;
+        width: $logo-width;
+        height: $logo-height;
         margin: 0 0 0 10px;
         border-radius: 30%;
-
 
         &:hover {
             scale: 1.1;
@@ -22,10 +20,9 @@
     }
 
     & .about-btn {
-        font-family: "Lato", sans-serif;
+        font-family: $secondary-font;
         background-color: initial;
         font-size: 22px;
-        font-family: "Lato", sans-serif;
         padding: 0;
         margin: 0;
     }
@@ -34,7 +31,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        font-family: "Lato", sans-serif;
+        font-family: $secondary-font;
 
         div {
             display: flex;
@@ -42,7 +39,7 @@
         }
 
         img {
-            border-radius: 50%;
+            border-radius: $border-radius-circle;
             object-fit: cover;
             width: 40px;
             height: 40px;
@@ -50,8 +47,8 @@
 
         .logout-btn,
         .login-ham-btn {
-            font-family: "Lato", sans-serif;
-            background: linear-gradient(135deg, #a5168d 0%, #b45d2b 100%);
+            font-family: $secondary-font;
+            background: $gradient-accent;
             border: none;
             border-radius: 8%;
             width: fit-content;
@@ -62,7 +59,6 @@
             transition: all 0.3s;
 
             &:hover {
-                // background: linear-gradient(135deg, #b4a62b 0%, #a5161d 100%);
                 color: rgb(255, 255, 255);
                 transform: scale(1.1);
             }

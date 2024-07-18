@@ -13,13 +13,13 @@ export function chatReducer(state = initialState, action) {
             return {
                 ...state,
                 messages: [...state.messages, action.message]
-            };
+            }
         case 'LEARN_RESPONSE':
             return {
                 ...state,
                 learnFeedback: action.message
-            };
+            }
         default:
-            return state;
+            return state
     }
 }

@@ -25,5 +25,5 @@ export function About() {
                 <note>to go back home, click on the logo</note>
             </section>
         </div >
-    );
+    )
 }

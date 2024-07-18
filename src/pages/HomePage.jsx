@@ -5,8 +5,8 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 import { ImageButton } from '../cmps/ImageButton';
 
 export function HomePage() {
-    const loggedInUser = useSelector(storeState => storeState.userModule.user);
-    const navigate = useNavigate();
+    const loggedInUser = useSelector(storeState => storeState.userModule.user)
+    const navigate = useNavigate()
 
     const rooms = [
         { name: 'Love', img: '/img/love.jpeg' },
@@ -17,13 +17,13 @@ export function HomePage() {
         { name: 'cooking', img: '/img/cooking.jpeg' },
         { name: 'fitness', img: '/img/fitness.jpeg' },
         { name: 'travel', img: '/img/travel.jpeg' },
-    ];
+    ]
 
     function joinRoom(room) {
-        if (!loggedInUser) showErrorMsg('MUST BE LOGGED IN');
+        if (!loggedInUser) showErrorMsg('MUST BE LOGGED IN')
         else {
-            showSuccessMsg(`Welcome ${loggedInUser.fullname} to ${room.name}`);
-            navigate(`/chat/${room.name}`);
+            showSuccessMsg(`Welcome ${loggedInUser.fullname} to ${room.name}`)
+            navigate(`/chat/${room.name}`)
         }
     }
 
@@ -43,5 +43,5 @@ export function HomePage() {
             </ul>
 
         </section>
-    );
+    )
 }

@@ -4,22 +4,28 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 import { LoginForm } from './LoginForm';
 
 export function LoginSignup({ onClose }) {
-    const [isSignup, setIsSignup] = useState(false);
+    const [isSignup, setIsSignup] = useState(false)
 
     function onLogin(credentials) {
-        isSignup ? _signup(credentials) : _login(credentials);
+        isSignup ? _signup(credentials) : _login(credentials)
     }
 
     function _login(credentials) {
         login(credentials)
-            .then(() => { showSuccessMsg('Logged in successfully'); onClose(); })
-            .catch((err) => { showErrorMsg('Oops try again'); });
+            .then(() => {
+                showSuccessMsg('Logged in successfully')
+                onClose()
+            })
+            .catch((err) => { showErrorMsg('Oops try again') })
     }
 
     function _signup(credentials) {
         signup(credentials)
-            .then(() => { showSuccessMsg('Signed in successfully'); onClose(); })
-            .catch((err) => { showErrorMsg('Oops try again'); });
+            .then(() => {
+                showSuccessMsg('Signed in successfully')
+                onClose()
+            })
+            .catch((err) => { showErrorMsg('Oops try again') })
     }
 
     return (
@@ -28,6 +34,7 @@ export function LoginSignup({ onClose }) {
                 <LoginForm
                     onLogin={onLogin}
                     isSignup={isSignup}
+                    onClose={onClose}
                 />
                 <div className="toggle-btns">
                     <div className="btns">
@@ -41,5 +48,5 @@ export function LoginSignup({ onClose }) {
                 </div>
             </div>
         </div>
-    );
+    )
 }
